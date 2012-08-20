@@ -1,0 +1,306 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14992B57152BF9F000E23941 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14992B56152BF9F000E23941 /* UIKit.framework */; };
+		14992B59152BF9F000E23941 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14992B58152BF9F000E23941 /* Foundation.framework */; };
+		14992B5B152BF9F000E23941 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14992B5A152BF9F000E23941 /* CoreGraphics.framework */; };
+		14992B61152BF9F000E23941 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14992B5F152BF9F000E23941 /* InfoPlist.strings */; };
+		14992B63152BF9F000E23941 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14992B62152BF9F000E23941 /* main.m */; };
+		BD31593115E2E4A1007DA529 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31592C15E2E4A1007DA529 /* AppDelegate.m */; };
+		BD31593315E2E4A1007DA529 /* QueueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31592F15E2E4A1007DA529 /* QueueViewController.m */; };
+		BD31593715E2E4E3007DA529 /* MerchantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD31593515E2E4E3007DA529 /* MerchantViewController.xib */; };
+		BD31593815E2E4E3007DA529 /* TicketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD31593615E2E4E3007DA529 /* TicketViewController.xib */; };
+		BD31596815E2E7DD007DA529 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BD31596715E2E7DD007DA529 /* LICENSE */; };
+		BD4C44F815A2311C00EF2144 /* TicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4C44F615A2311C00EF2144 /* TicketViewController.m */; };
+		BD4C453315A23F9800EF2144 /* Q.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4C453215A23F9800EF2144 /* Q.m */; };
+		BDA2A7B315A3B5C60065E66F /* MerchantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA2A7B115A3B5C60065E66F /* MerchantViewController.m */; };
+		BDEDB6EF15E3039A00380311 /* QueueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDEDB6EE15E3039A00380311 /* QueueViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		14992B52152BF9F000E23941 /* Q.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Q.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14992B56152BF9F000E23941 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		14992B58152BF9F000E23941 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		14992B5A152BF9F000E23941 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		14992B5E152BF9F000E23941 /* Q-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Q-Info.plist"; sourceTree = "<group>"; };
+		14992B60152BF9F000E23941 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		14992B62152BF9F000E23941 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		14992B64152BF9F000E23941 /* Q-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Q-Prefix.pch"; sourceTree = "<group>"; };
+		BD31592B15E2E4A1007DA529 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BD31592C15E2E4A1007DA529 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BD31592E15E2E4A1007DA529 /* QueueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueViewController.h; sourceTree = "<group>"; };
+		BD31592F15E2E4A1007DA529 /* QueueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueViewController.m; sourceTree = "<group>"; };
+		BD31593515E2E4E3007DA529 /* MerchantViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantViewController.xib; sourceTree = SOURCE_ROOT; };
+		BD31593615E2E4E3007DA529 /* TicketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketViewController.xib; sourceTree = SOURCE_ROOT; };
+		BD31596715E2E7DD007DA529 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BD4C44F515A2311C00EF2144 /* TicketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketViewController.h; sourceTree = "<group>"; };
+		BD4C44F615A2311C00EF2144 /* TicketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketViewController.m; sourceTree = "<group>"; };
+		BD4C453115A23F9800EF2144 /* Q.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Q.h; sourceTree = "<group>"; };
+		BD4C453215A23F9800EF2144 /* Q.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Q.m; sourceTree = "<group>"; };
+		BDA2A7B015A3B5C60065E66F /* MerchantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantViewController.h; sourceTree = "<group>"; };
+		BDA2A7B115A3B5C60065E66F /* MerchantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantViewController.m; sourceTree = "<group>"; };
+		BDEDB6EE15E3039A00380311 /* QueueViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QueueViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		14992B4F152BF9F000E23941 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14992B57152BF9F000E23941 /* UIKit.framework in Frameworks */,
+				14992B59152BF9F000E23941 /* Foundation.framework in Frameworks */,
+				14992B5B152BF9F000E23941 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14992B47152BF9F000E23941 = {
+			isa = PBXGroup;
+			children = (
+				BDA2A7B015A3B5C60065E66F /* MerchantViewController.h */,
+				BDA2A7B115A3B5C60065E66F /* MerchantViewController.m */,
+				BD4C453115A23F9800EF2144 /* Q.h */,
+				BD4C453215A23F9800EF2144 /* Q.m */,
+				BD31592B15E2E4A1007DA529 /* AppDelegate.h */,
+				BD31592C15E2E4A1007DA529 /* AppDelegate.m */,
+				BD31592E15E2E4A1007DA529 /* QueueViewController.h */,
+				BD31592F15E2E4A1007DA529 /* QueueViewController.m */,
+				BD4C44F515A2311C00EF2144 /* TicketViewController.h */,
+				BD4C44F615A2311C00EF2144 /* TicketViewController.m */,
+				14992BAD152C300900E23941 /* Resources */,
+				14992B5D152BF9F000E23941 /* Supporting Files */,
+				14992B55152BF9F000E23941 /* Frameworks */,
+				14992B53152BF9F000E23941 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		14992B53152BF9F000E23941 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14992B52152BF9F000E23941 /* Q.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		14992B55152BF9F000E23941 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14992B56152BF9F000E23941 /* UIKit.framework */,
+				14992B58152BF9F000E23941 /* Foundation.framework */,
+				14992B5A152BF9F000E23941 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		14992B5D152BF9F000E23941 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD31596715E2E7DD007DA529 /* LICENSE */,
+				14992B5E152BF9F000E23941 /* Q-Info.plist */,
+				14992B5F152BF9F000E23941 /* InfoPlist.strings */,
+				14992B62152BF9F000E23941 /* main.m */,
+				14992B64152BF9F000E23941 /* Q-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14992BAD152C300900E23941 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BDEDB6EE15E3039A00380311 /* QueueViewController.xib */,
+				BD31593515E2E4E3007DA529 /* MerchantViewController.xib */,
+				BD31593615E2E4E3007DA529 /* TicketViewController.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		14992B51152BF9F000E23941 /* Q */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14992B73152BF9F000E23941 /* Build configuration list for PBXNativeTarget "Q" */;
+			buildPhases = (
+				14992B4E152BF9F000E23941 /* Sources */,
+				14992B4F152BF9F000E23941 /* Frameworks */,
+				14992B50152BF9F000E23941 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Q;
+			productName = Q;
+			productReference = 14992B52152BF9F000E23941 /* Q.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		14992B49152BF9F000E23941 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 14992B4C152BF9F000E23941 /* Build configuration list for PBXProject "Q" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 14992B47152BF9F000E23941;
+			productRefGroup = 14992B53152BF9F000E23941 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				14992B51152BF9F000E23941 /* Q */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		14992B50152BF9F000E23941 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14992B61152BF9F000E23941 /* InfoPlist.strings in Resources */,
+				BD31593715E2E4E3007DA529 /* MerchantViewController.xib in Resources */,
+				BD31593815E2E4E3007DA529 /* TicketViewController.xib in Resources */,
+				BD31596815E2E7DD007DA529 /* LICENSE in Resources */,
+				BDEDB6EF15E3039A00380311 /* QueueViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		14992B4E152BF9F000E23941 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14992B63152BF9F000E23941 /* main.m in Sources */,
+				BD4C44F815A2311C00EF2144 /* TicketViewController.m in Sources */,
+				BD4C453315A23F9800EF2144 /* Q.m in Sources */,
+				BDA2A7B315A3B5C60065E66F /* MerchantViewController.m in Sources */,
+				BD31593115E2E4A1007DA529 /* AppDelegate.m in Sources */,
+				BD31593315E2E4A1007DA529 /* QueueViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		14992B5F152BF9F000E23941 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14992B60152BF9F000E23941 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		14992B71152BF9F000E23941 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		14992B72152BF9F000E23941 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		14992B74152BF9F000E23941 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Q-Prefix.pch";
+				INFOPLIST_FILE = "Q-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = Q;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		14992B75152BF9F000E23941 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Q-Prefix.pch";
+				INFOPLIST_FILE = "Q-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = Q;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		14992B4C152BF9F000E23941 /* Build configuration list for PBXProject "Q" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14992B71152BF9F000E23941 /* Debug */,
+				14992B72152BF9F000E23941 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14992B73152BF9F000E23941 /* Build configuration list for PBXNativeTarget "Q" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14992B74152BF9F000E23941 /* Debug */,
+				14992B75152BF9F000E23941 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 14992B49152BF9F000E23941 /* Project object */;
+}
