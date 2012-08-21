@@ -13,3 +13,6 @@ and
 
 Both projects should be cloned into the api directory.
 
+It also required RabbitMQ, which can be found at:
+
+  http://www.rabbitmq.com/
