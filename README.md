@@ -17,4 +17,5 @@ It also requires RabbitMQ, which can be found at:
 
   http://www.rabbitmq.com/
 
-You might also want to have a MongoDB instance sitting somewhere.
+You might also want to have a MongoDB instance sitting somewhere to
+store a list of merchants/vendors that could utilize a queuing system.
