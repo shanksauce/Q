@@ -1,0 +1,6 @@
+[submodule "api/ClassLoader"]
+	path = api/ClassLoader
+	url = git@github.com:symfony/ClassLoader
+[submodule "api/php-amqplib"]
+	path = api/php-amqplib
+	url = git@github.com:videlalvaro/php-amqplib
