@@ -15,11 +15,15 @@ and
 
     https://github.com/symfony/ClassLoader
 
-Both projects should be cloned into the api directory.
-
-It also requires RabbitMQ, which can be found at:
+Both projects have been included as submodules. You should be able to get 
+away with running:
+   
+    git submodule init
+    git submodule update
+    
+Q also requires RabbitMQ, which can be found at:
 
     http://www.rabbitmq.com/
 
-You might also want to have a MongoDB instance sitting somewhere to
-store a list of merchants/vendors that could utilize a queuing system.
+Additionally, Q requires a MongoDB instance sitting somewhere to store a list of 
+merchants/vendors that could utilize a queuing system.
