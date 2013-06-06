@@ -51,23 +51,48 @@ class APIHandler(web.RequestHandler):
   def get_vendors(self):
     self.write(dumps(db['Merchants'].find()))
 
+  def get_length(self, id):
+    l = -1
+    if self.check_queue_exists(id):
+      q = channel.queue_declare(queue=id, durable=True)
+      l = q.method.message_count
+    self.write(dumps({'length': l, 'queue': id}))
+
+  def add(self, id, message):
+    channel.basic_publish(exchange=config.EXCHANGE, routing_key=id, body=message, properties=pika.BasicProperties(delivery_mode=2))
+    self.write(dumps({'errors': 'OK'}))
+  
+  def remove(self, id, body):
+    l = -1
+    if self.check_queue_exists(id):
+      q = channel.queue_declare(queue=id, durable=True)
+      l = q.method.message_count
+    if l != -1:
+      for i in xrange(0,l):
+        msg = channel.basic_get(queue=id, no_ack=True)
+        print msg[0].delivery_tag
+#        if msg[2] == body:
+#          channel.basic_ack(delivery_tag=msg[0].delivery_tag);
+  
   def register_vendor(self, id):
-    channel.queue_declare(exchange=config.EXCHANGE, type='direct')
-    channel.queue_bind(exchange=config.EXCHANGE, queue=id)
+    channel.queue_declare(queue=id, durable=True)
     self.write(dumps({'error': 'OK'}))
 
   def check_queue_exists(self, id):
-    print self
     b = True
     try:
-      channel.queue_bind(exchange=config.EXCHANGE, queue='test')
+      channel.queue_bind(exchange=config.EXCHANGE, queue=id)
     except Exception as ex:
-      print ex
+      b = False
     return b
 
-
-
-
+class NullHandler(web.RequestHandler):
+  def initialize(self): 
+    self.set_header('Connection', 'Close')
+  def head(self): 
+    pass
+  def get(self): 
+    pass
 
 if __name__ == '__main__':
   print 'Starting...'
@@ -81,99 +106,11 @@ if __name__ == '__main__':
   }
 
   app = web.Application([
+    ('/favicon.ico', NullHandler),
     ('/(.*)/(.*)', APIHandler),
   ], **settings)
   app.listen(config.PORT)
 
   ioloop.IOLoop.instance().start()
 
-
-'''
-class Q():
-    private static $connection;
-    private static $channel;
-    private static $exchange = EXCHANGE;
-
-    private static $mongo;
-    private static $db;
-
-    private $length;
-
-    public function __construct() {
-        self::$connection = new AMQPConnection(HOST, PORT, USER, PASS, VHOST);
-        self::$channel = self::$connection->channel();
-        self::$channel->exchange_declare(self::$exchange, "direct", false, true, false);
-
-        self::$mongo = new Mongo();
-        self::$db = self::$mongo->Q;
-    }
-
-    public function __destruct() {
-        self::$channel->close();
-        self::$connection->close();
-    }
-
-    public function registerMerchant($id) {
-        self::$channel->queue_declare($id, false, true, false, false);
-        self::$channel->queue_bind($id, self::$exchange, $id);
-	return json_encode(array("Response" => "OK", "Result" => "Successfully added ".$id));
-    }
-
-    public function getMerchants() {
-        $collection = self::$db->Merchants;
-        $cursor = $collection->find();
-        
-        $result = array();
-
-        foreach($cursor as $k) {
-            if(isset($k["_id"])) {
-                $k["_id"] = $k["_id"]->__toString();
-            }
-            $result[] = $k;
-        }
-
-        return json_encode($result);
-    }
-
-    private function checkQueueExists($id) {
-        $b = true;
-
-        try {
-            self::$channel->queue_bind($id, self::$exchange, $id);
-        } catch(AMQPChannelException $ex) {
-            if($ex->getCode() === 404) $b = false;
-        }
-
-        return $b;
-    }
-
-    public function getLength($id) {
-        $numInFront = array(0, -1);
-        if($this->checkQueueExists($id)) {
-            $numInFront = self::$channel->queue_declare($id, false, true, false, false);
-        }
-        $this->length = $numInFront[1];
-        return json_encode(array("Response" => "OK", "numInFront" => $numInFront[1]));
-    }
-
-    public function add($id, $body) {
-        $msg_body = json_encode(array("Test" => $body));
-        $message = new AMQPMessage($msg_body, array("content_type" => "text/json", "delivery-mode" => 2));
-        self::$channel->basic_publish($message, self::$exchange, $id);
-        return json_encode(array("Response" => "OK"));
-    }
-    
-    public function remove($id, $body) {
-        $this->getLength($id);
-
-        for($i=0; $i<$this->length; ++$i) {
-            $msg = self::$channel->basic_get($id);
-            $sourceBody = json_decode($msg->body);
-            if($sourceBody->Test === $body) {
-                self::$channel->basic_ack($msg->delivery_info['delivery_tag']);
-            }
-        }
-    }
-}
-'''
 
