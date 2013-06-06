@@ -1,30 +1,95 @@
-<?php
-//
-//  Q API
-//
-//  Created by Ben Shank on 4/3/12.
-//  Copyright (c) 2012 Aol. All rights reserved.
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  For the full copyright and license information, please view the 
-//  LICENSE file that was distributed with this source code.
-//
+import os
+import inspect
+import config
+import pika
+from json import dumps
+from uuid import uuid4
+from pymongo import MongoClient
+from pymongo import errors as pymongo_errors
+from bson.json_util import dumps, loads
+from bson.objectid import ObjectId
+from tornado import web, ioloop
+from base64 import standard_b64encode
 
-include("config.php");
-use PhpAmqpLib\Connection\AMQPConnection;
-use PhpAmqpLib\Message\AMQPMessage;
-use PhpAmqpLib\Exception\AMQPChannelException;
+connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+channel = connection.channel()
+channel.exchange_declare(exchange=config.EXCHANGE, type='direct')
 
-class Q {
+mongoClient = MongoClient(config.MONGO_CONNECTION_STRING)
+db = mongoClient[config.MONGO_DATABASE]
+
+
+class APIHandler(web.RequestHandler):
+  def _validate_request(self, path):
+    if path is None:
+      return False
+    methods = [x for x in dir(self) if x == path]
+    if len(methods) != 1:
+      return False
+    else:
+      return getattr(self, methods[0], None)
+
+  def options(self, path=None, json=None):
+    pass
+
+  def post(self, path=None, json=None):
+    method = self._validate_request(path)
+    if not method:
+      return
+    payload = loads(self.request.body)
+    if len([m for m in inspect.getargspec(method).args if m != 'self']) == 1:
+      method(payload)
+
+  def get(self, path=None, json=None):
+    method = self._validate_request(path)
+    if not method:
+      return
+    args = [] if json is None else loads(json)
+    if len([m for m in inspect.getargspec(method).args if m != 'self']) == len(args):
+      method(*args)
+      
+  def get_vendors(self):
+    self.write(dumps(db['Merchants'].find()))
+
+  def register_vendor(self, id):
+    channel.queue_declare(exchange=config.EXCHANGE, type='direct')
+    channel.queue_bind(exchange=config.EXCHANGE, queue=id)
+    self.write(dumps({'error': 'OK'}))
+
+  def check_queue_exists(self, id):
+    print self
+    b = True
+    try:
+      channel.queue_bind(exchange=config.EXCHANGE, queue='test')
+    except Exception as ex:
+      print ex
+    return b
+
+
+
+
+
+if __name__ == '__main__':
+  print 'Starting...'
+  base_dir = os.path.join(os.path.dirname(__file__), 'templates')
+  settings = {
+    'gzip': True,
+    'debug': True
+#    'template_path': base_dir,
+#    'static_path': base_dir+'/static',
+#    'cookie_secret': '47c8ec8a7c4c451fa18ea72e7146f34c6c6a61e5e911478d977ce776712d879a'
+  }
+
+  app = web.Application([
+    ('/(.*)/(.*)', APIHandler),
+  ], **settings)
+  app.listen(config.PORT)
+
+  ioloop.IOLoop.instance().start()
+
+
+'''
+class Q():
     private static $connection;
     private static $channel;
     private static $exchange = EXCHANGE;
@@ -110,4 +175,5 @@ class Q {
         }
     }
 }
-?>
+'''
+
